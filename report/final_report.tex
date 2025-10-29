@@ -207,43 +207,44 @@ The pipeline has four stages: data acquisition (RGB and thermal), feature extrac
 
 \begin{figure}[h]
   \centering
-\begin{tikzpicture}[x=0.5cm,y=0.5cm,>=Latex,font=\small]
-    % Data Acquisition box
-    \draw[rounded corners=6pt, line width=0.6pt] (0,0) rectangle (5,7);
-    \node[font=\bfseries] at (2.5,6.4) {Data Acquisition};
-    \node[draw, rounded corners=2pt, minimum width=3.0cm, minimum height=1.2cm, align=center] (rgb) at (2.5,4.7) {RGB\\Camera};
-    \node[draw, rounded corners=2pt, minimum width=3.0cm, minimum height=1.2cm, align=center] (thermal) at (2.5,2.3) {Thermal\\Camera};
+\begin{tikzpicture}[x=0.45cm,y=0.45cm,>=Latex,font=\small]
+    % Data Acquisition block
+    \draw[rounded corners=6pt, line width=0.6pt] (0,0) rectangle (6,8);
+    \node[font=\bfseries] at (3,8.6) {Data Acquisition};
+    \node[draw, rounded corners=2pt, minimum width=3.6cm, minimum height=1.4cm, align=center] (rgb) at (3,5.6) {RGB\\Camera};
+    \node[draw, rounded corners=2pt, minimum width=3.6cm, minimum height=1.4cm, align=center] (thermal) at (3,2.4) {Thermal\\Camera};
 
-    % Processing and Analysis box
-    \draw[rounded corners=6pt, line width=0.6pt] (6,0.8) rectangle (19,6.2);
-    \node[font=\bfseries] at (12.5,5.9) {Processing and Analysis};
-    \node[draw, rounded corners=2pt, minimum width=3.6cm, minimum height=1.1cm, align=center] (frame) at (8.5,4.4) {Frame\\Extractor};
-    \node[draw, rounded corners=2pt, minimum width=3.8cm, minimum height=1.1cm, align=center] (model) at (12.2,4.4) {FireFusionNet\\AI Model};
-    \node[draw, rounded corners=2pt, minimum width=3.6cm, minimum height=1.1cm, align=center] (temporal) at (15.8,4.4) {Temporal\\Analyzer};
-    \node[draw, rounded corners=2pt, minimum width=4.0cm, minimum height=1.1cm, align=center] (conf) at (12.2,2.2) {Confidence\\Evaluator};
+    % Processing and Analysis block
+    \draw[rounded corners=6pt, line width=0.6pt] (9,0.8) rectangle (27,7.2);
+    \node[font=\bfseries] at (18,7.8) {Processing and Analysis};
+    \node[draw, rounded corners=2pt, minimum width=4.2cm, minimum height=1.4cm, align=center] (frame) at (12.5,5.2) {Frame\\Extractor};
+    \node[draw, rounded corners=2pt, minimum width=4.6cm, minimum height=1.4cm, align=center] (model) at (17.5,5.2) {FireFusionNet\\AI Model};
+    \node[draw, rounded corners=2pt, minimum width=4.2cm, minimum height=1.4cm, align=center] (temporal) at (22.5,5.2) {Temporal\\Analyzer};
+    \node[draw, rounded corners=2pt, minimum width=5.0cm, minimum height=1.4cm, align=center] (conf) at (17.5,2.6) {Confidence\\Evaluator};
 
-    % Arrows from cameras to processing
-    \draw[->, thick] (5,4.7) -- (6,4.7);
-    \draw[->, thick] (5,2.3) .. controls (5.6,2.4) and (6.2,3.2) .. (6.8,4.2);
+    % Arrows from cameras to processing (spaced)
+    \draw[->, thick] (6,5.6) -- (9,5.6);
+    \draw[->, thick] (6,2.4) .. controls (7.2,2.8) and (8.2,4.0) .. (9.6,5.0);
 
-    % Chain arrows
+    % Pipeline arrows
     \draw[->, thick] (frame) -- (model);
     \draw[->, thick] (model) -- (temporal);
     \draw[->, thick] (temporal) -- (conf);
 
-    % Verification module
-    \node[draw, rounded corners=2pt, minimum width=3.6cm, minimum height=1.1cm, align=center] (verify) at (21,4.4) {Verification\\Module};
-    \draw[->, thick] (conf.east) -- (verify.west);
+    % Verification module (separate)
+    \node[draw, rounded corners=2pt, minimum width=4.2cm, minimum height=1.4cm, align=center] (verify) at (30.5,5.2) {Verification\\Module};
+    \draw[->, thick] (conf.east) .. controls (24.5,2.6) and (27.0,3.8) .. (28.4,4.8);
+    \draw[->, thick] (28.4,4.8) -- (28.9,5.0);
 
-    % Alerting box
-    \draw[rounded corners=6pt, line width=0.6pt] (22.8,0.8) rectangle (29,6.2);
-    \node[font=\bfseries] at (25.9,5.9) {Alerting};
-    \draw[rounded corners=4pt] (23.6,1.4) rectangle (28.2,5.2);
-    \node at (25.9,5.2) {\scriptsize Notification Module};
-    \node[draw, rounded corners=2pt, minimum width=3.0cm, minimum height=0.9cm, align=center] at (25.9,4.3) {Email};
-    \node[draw, rounded corners=2pt, minimum width=3.0cm, minimum height=0.9cm, align=center] at (25.9,3.3) {SMS};
-    \node[draw, rounded corners=2pt, minimum width=3.0cm, minimum height=0.9cm, align=center] at (25.9,2.3) {WhatsApp};
-    \draw[->, thick] (verify.east) -- (22.8,4.4);
+    % Alerting block
+    \draw[rounded corners=6pt, line width=0.6pt] (33,0.8) rectangle (42,7.2);
+    \node[font=\bfseries] at (37.5,7.8) {Alerting};
+    \draw[rounded corners=4pt] (34,1.6) rectangle (41,6.2);
+    \node at (37.5,6.3) {\scriptsize Notification Module};
+    \node[draw, rounded corners=2pt, minimum width=3.8cm, minimum height=1.0cm, align=center] at (37.5,4.9) {Email};
+    \node[draw, rounded corners=2pt, minimum width=3.8cm, minimum height=1.0cm, align=center] at (37.5,3.7) {SMS};
+    \node[draw, rounded corners=2pt, minimum width=3.8cm, minimum height=1.0cm, align=center] at (37.5,2.5) {WhatsApp};
+    \draw[->, thick] (verify.east) -- (33,5.2);
   \end{tikzpicture}
   \caption{Drawn System Architecture (schematic).}
 \end{figure}
