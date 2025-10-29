@@ -55,6 +55,7 @@ def main():
     ap.add_argument('--subset_out',default='data/fire_yolo_2000')
     ap.add_argument('--limit',type=int,default=2000)
     ap.add_argument('--format',default='yolov8')
+    ap.add_argument('--version',type=int,default=None)
     args=ap.parse_args()
     if not args.api_key:
         raise SystemExit('Set ROBOFLOW_API_KEY env var or pass --api_key')
@@ -62,7 +63,7 @@ def main():
     from roboflow import Roboflow
     rf=Roboflow(api_key=args.api_key)
     proj=rf.workspace(args.workspace).project(args.project)
-    ver_id=pick_latest_version(proj)
+    ver_id=args.version or pick_latest_version(proj)
     ds=proj.version(ver_id).download(args.format, location=args.outdir)
     # roboflow returns a path; detect yaml
     base=Path(ds.location if hasattr(ds,'location') else ds)

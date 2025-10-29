@@ -2,7 +2,8 @@ param(
   [string]$Workspace='truck-rakshak',
   [string]$Project='fire-detection-k1ima',
   [int]$Limit=2000,
-  [string]$SubsetOut='data/fire_yolo_2000'
+  [string]$SubsetOut='data/fire_yolo_2000',
+  [int]$Version=1
 )
 $ErrorActionPreference='Stop'
 function Get-PythonExe{if(Get-Command python -ErrorAction SilentlyContinue){return 'python'}elseif(Get-Command py -ErrorAction SilentlyContinue){return 'py'}else{throw 'Python not found. Install Python 3 first.'}}
@@ -23,4 +24,4 @@ if(-not $env:ROBOFLOW_API_KEY){
 # install roboflow only if missing
 & $py -c "import importlib,sys;sys.exit(0 if importlib.util.find_spec('roboflow') else 1)" | Out-Null
 if ($LASTEXITCODE -ne 0) { & $py -m pip install roboflow }
-& $py scripts/download_roboflow.py --workspace $Workspace --project $Project --limit $Limit --subset_out $SubsetOut
+& $py scripts/download_roboflow.py --workspace $Workspace --project $Project --limit $Limit --subset_out $SubsetOut --version $Version
