@@ -21,5 +21,6 @@ if(-not $env:ROBOFLOW_API_KEY){
   throw 'ROBOFLOW_API_KEY not found. Add it to .env as ROBOFLOW_API_KEY=<your_key>'
 }
 # install roboflow only if missing
-try { & $py -c "import roboflow" | Out-Null } catch { & $py -m pip install roboflow }
+& $py -c "import importlib,sys;sys.exit(0 if importlib.util.find_spec('roboflow') else 1)" | Out-Null
+if ($LASTEXITCODE -ne 0) { & $py -m pip install roboflow }
 & $py scripts/download_roboflow.py --workspace $Workspace --project $Project --limit $Limit --subset_out $SubsetOut

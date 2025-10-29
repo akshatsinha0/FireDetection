@@ -84,7 +84,7 @@ def main():
     (dst/'images'/'train').mkdir(parents=True,exist_ok=True)
     (dst/'labels'/'train').mkdir(parents=True,exist_ok=True)
 
-    n=copied:=copy_subset(src_train_images,src_train_labels,dst/'images/train',dst/'labels/train',args.limit)
+    copied=copy_subset(src_train_images,src_train_labels,dst/'images/train',dst/'labels/train',args.limit)
 
     # copy val/test entirely if present
     for split in ('val','valid','validation'):
