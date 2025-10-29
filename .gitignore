@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Packaging
+build/
+dist/
+*.egg-info/
+
+# Testing
+.pytest_cache/
+.tox/
+.coverage*
+
+# Data & outputs
+/data/
+/runs/
+/models/
+/outputs/
+/logs/
+
+# Ultralytics/weights
+*.pt
+*.onnx
+*.engine
+
+# OS
+.DS_Store
+Thumbs.db
