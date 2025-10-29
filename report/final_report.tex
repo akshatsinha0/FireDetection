@@ -207,34 +207,31 @@ The pipeline has four stages: data acquisition (RGB and thermal), feature extrac
 
 \begin{figure}[h]
   \centering
-\begin{tikzpicture}[x=0.45cm,y=0.45cm,>=Latex,font=\small]
+\begin{tikzpicture}[x=0.37cm,y=0.37cm,>=Latex,font=\small,xshift=-0.4cm]
     % Data Acquisition block
     \draw[rounded corners=6pt, line width=0.6pt] (0,0) rectangle (6,8);
     \node[font=\bfseries] at (3,8.6) {Data Acquisition};
     \node[draw, rounded corners=2pt, minimum width=3.6cm, minimum height=1.4cm, align=center] (rgb) at (3,5.6) {RGB\\Camera};
     \node[draw, rounded corners=2pt, minimum width=3.6cm, minimum height=1.4cm, align=center] (thermal) at (3,2.4) {Thermal\\Camera};
 
-    % Processing and Analysis block
+    % Processing and Analysis block (single pipeline, no individual boxes)
     \draw[rounded corners=6pt, line width=0.6pt] (9,0.8) rectangle (27,7.2);
     \node[font=\bfseries] at (18,7.8) {Processing and Analysis};
-    \node[draw, rounded corners=2pt, minimum width=4.2cm, minimum height=1.4cm, align=center] (frame) at (12.5,5.2) {Frame\\Extractor};
-    \node[draw, rounded corners=2pt, minimum width=4.6cm, minimum height=1.4cm, align=center] (model) at (17.5,5.2) {FireFusionNet\\AI Model};
-    \node[draw, rounded corners=2pt, minimum width=4.2cm, minimum height=1.4cm, align=center] (temporal) at (22.5,5.2) {Temporal\\Analyzer};
-    \node[draw, rounded corners=2pt, minimum width=5.0cm, minimum height=1.4cm, align=center] (conf) at (17.5,2.6) {Confidence\\Evaluator};
 
     % Arrows from cameras to processing (spaced)
     \draw[->, thick] (6,5.6) -- (9,5.6);
     \draw[->, thick] (6,2.4) .. controls (7.2,2.8) and (8.2,4.0) .. (9.6,5.0);
 
-    % Pipeline arrows
-    \draw[->, thick] (frame) -- (model);
-    \draw[->, thick] (model) -- (temporal);
-    \draw[->, thick] (temporal) -- (conf);
+    % Single pipeline arrow through processing block with labels (no boxes)
+    \draw[->, thick] (9,5.6) -- (27,5.6);
+    \node at (12.5,6.2) {Frame Extractor};
+    \node at (17.5,6.2) {FireFusionNet};
+    \node at (22.5,6.2) {Temporal Analyzer};
+    \node at (17.5,2.6) {Confidence\\Evaluator};
 
     % Verification module (separate)
     \node[draw, rounded corners=2pt, minimum width=4.2cm, minimum height=1.4cm, align=center] (verify) at (30.5,5.2) {Verification\\Module};
-    \draw[->, thick] (conf.east) .. controls (24.5,2.6) and (27.0,3.8) .. (28.4,4.8);
-    \draw[->, thick] (28.4,4.8) -- (28.9,5.0);
+    \draw[->, thick] (22.8,3.0) .. controls (24.8,3.2) and (27.0,4.0) .. (28.9,5.0);
 
     % Alerting block
     \draw[rounded corners=6pt, line width=0.6pt] (33,0.8) rectangle (42,7.2);
