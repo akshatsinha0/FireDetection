@@ -10,7 +10,7 @@ function Load-DotEnv([string]$path='.env'){
   if(Test-Path $path){
     Get-Content $path | ForEach-Object {
       $line=$_.Trim(); if(-not $line -or $line.StartsWith('#')){return}
-      $kv=$line -split '=',2; if($kv.Length -eq 2){$k=$kv[0].Trim(); $v=$kv[1].Trim(); if($k){$env:$k=$v}}
+      $kv=$line -split '=',2; if($kv.Length -eq 2){$k=$kv[0].Trim(); $v=$kv[1].Trim(); if($k){ Set-Item -Path ("Env:"+$k) -Value $v -ErrorAction SilentlyContinue | Out-Null }}
     }
   }
 }
