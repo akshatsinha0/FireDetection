@@ -34,32 +34,32 @@
 % ---------------- Title Page ----------------
 \begin{titlepage}
   \centering
-  \begingroup\setstretch{1.05}
-  {\itshape A\\[0.5em]}
-  {\large Report Submitted\\[0.5em]}
-  {\itshape for\\[0.5em]}
-  {\LARGE\bfseries Project Review 1\\[0.5em]}
-  {\itshape on the project entitled\\[0.5em]}
-  {\LARGE\bfseries Real-time Fire \& Smoke Detection with Alerts\\[0.8em]}
-  {\itshape in partial fulfilment for the course\\[0.4em]}
-  {\Large BCSE407L - Computer Vision\\[0.4em]}
-  {\small (Theory Only)\\[0.4em]}
-  {\small Class ID: VL2025260102035\\[0.2em]}
-  {\small Slot: D2+TD2 \textbullet{} Venue: SJT402\\[0.2em]}
-  {\small Course Instructor: ANISHA M. LAL\\[0.6em]}
-  {\large Bachelor of Technology\\[0.2em]}
-  {\itshape in\\[0.2em]}
-  {\Large Computer Science \& Engineering\\[0.6em]}
-  {\itshape by\\[0.3em]}
-  {\large Akshat Sinha (22BCE2218), Aman Chauhan (22BCE0476)\\[0.6em]}
-  {\itshape Under the guidance of\\[0.2em]}
-  {\Large\bfseries ANISHA M. LAL\\[0.6em]}
+\begingroup\setstretch{1.06}
+  {\itshape A\\[0.7em]}
+  {\large Report Submitted\\[0.6em]}
+  {\itshape for\\[0.6em]}
+  {\LARGE\bfseries Project Review 1\\[0.6em]}
+  {\itshape on the project entitled\\[0.6em]}
+  {\LARGE\bfseries Real-time Fire \& Smoke Detection with Alerts\\[0.9em]}
+  {\itshape in partial fulfilment for the course\\[0.5em]}
+  {\Large BCSE407L - Computer Vision\\[0.5em]}
+  {\small (Theory Only)\\[0.5em]}
+  {\small Class ID: VL2025260102035\\[0.3em]}
+  {\small Slot: D2+TD2 \textbullet{} Venue: SJT402\\[0.3em]}
+  {\small Course Instructor: ANISHA M. LAL\\[0.7em]}
+  {\large Bachelor of Technology\\[0.3em]}
+  {\itshape in\\[0.3em]}
+  {\Large Computer Science \& Engineering\\[0.7em]}
+  {\itshape by\\[0.4em]}
+  {\large Akshat Sinha (22BCE2218), Aman Chauhan (22BCE0476)\\[0.7em]}
+  {\itshape Under the guidance of\\[0.3em]}
+  {\Large\bfseries ANISHA M. LAL\\[0.7em]}
 
   % Institute logo (expects file: VIT LOGO.png)
-  \optionalinclude{VIT LOGO.png}{0.25\textwidth}\\[0.6em]
+  \optionalinclude{VIT LOGO.png}{0.27\textwidth}\\[0.7em]
 
-  {Department of Computer Science \& Engineering\\[0.3em]}
-  {Vellore Institute of Technology Vellore - 632014, INDIA\\[0.6em]}
+  {Department of Computer Science \& Engineering\\[0.4em]}
+  {Vellore Institute of Technology Vellore - 632014, INDIA\\[0.7em]}
   {29-10-2025}
   \endgroup
 \end{titlepage}
@@ -207,24 +207,24 @@ The pipeline has four stages: data acquisition (RGB and thermal), feature extrac
 
 \begin{figure}[h]
   \centering
-\begin{tikzpicture}[x=0.55cm,y=0.55cm,>=Latex,font=\small]
+\begin{tikzpicture}[x=0.5cm,y=0.5cm,>=Latex,font=\small]
     % Data Acquisition box
-    \draw[rounded corners=6pt, line width=0.6pt] (0,0) rectangle (4,6);
-    \node at (2,5.6) {\bfseries Data Acquisition};
-    \node[draw, rounded corners=2pt, minimum width=2.4cm, minimum height=0.9cm, align=center] (rgb) at (2,4.2) {RGB\\Camera};
-    \node[draw, rounded corners=2pt, minimum width=2.4cm, minimum height=0.9cm, align=center] (thermal) at (2,1.8) {Thermal\\Camera};
+    \draw[rounded corners=6pt, line width=0.6pt] (0,0) rectangle (5,7);
+    \node[font=\bfseries] at (2.5,6.4) {Data Acquisition};
+    \node[draw, rounded corners=2pt, minimum width=3.0cm, minimum height=1.2cm, align=center] (rgb) at (2.5,4.7) {RGB\\Camera};
+    \node[draw, rounded corners=2pt, minimum width=3.0cm, minimum height=1.2cm, align=center] (thermal) at (2.5,2.3) {Thermal\\Camera};
 
     % Processing and Analysis box
-    \draw[rounded corners=6pt, line width=0.6pt] (6,0.5) rectangle (16,5.5);
-    \node at (11,5.1) {\bfseries Processing and Analysis};
-    \node[draw, rounded corners=2pt, minimum width=2.3cm, minimum height=1.0cm, align=center] (frame) at (7.8,3.8) {Frame\\Extractor};
-    \node[draw, rounded corners=2pt, minimum width=2.6cm, minimum height=1.0cm, align=center] (model) at (10.8,3.8) {FireFusionNet\\AI Model};
-    \node[draw, rounded corners=2pt, minimum width=2.6cm, minimum height=1.0cm, align=center] (temporal) at (13.7,3.8) {Temporal\\Analyzer};
-    \node[draw, rounded corners=2pt, minimum width=3.0cm, minimum height=1.0cm, align=center] (conf) at (10.8,2.1) {Confidence\\Evaluator};
+    \draw[rounded corners=6pt, line width=0.6pt] (6,0.8) rectangle (19,6.2);
+    \node[font=\bfseries] at (12.5,5.9) {Processing and Analysis};
+    \node[draw, rounded corners=2pt, minimum width=3.6cm, minimum height=1.1cm, align=center] (frame) at (8.5,4.4) {Frame\\Extractor};
+    \node[draw, rounded corners=2pt, minimum width=3.8cm, minimum height=1.1cm, align=center] (model) at (12.2,4.4) {FireFusionNet\\AI Model};
+    \node[draw, rounded corners=2pt, minimum width=3.6cm, minimum height=1.1cm, align=center] (temporal) at (15.8,4.4) {Temporal\\Analyzer};
+    \node[draw, rounded corners=2pt, minimum width=4.0cm, minimum height=1.1cm, align=center] (conf) at (12.2,2.2) {Confidence\\Evaluator};
 
     % Arrows from cameras to processing
-    \draw[->, thick] (4,4.2) -- (6,4.2);
-    \draw[->, thick] (4,1.8) .. controls (5.2,2.0) and (6.2,3.0) .. (6.7,3.8);
+    \draw[->, thick] (5,4.7) -- (6,4.7);
+    \draw[->, thick] (5,2.3) .. controls (5.6,2.4) and (6.2,3.2) .. (6.8,4.2);
 
     % Chain arrows
     \draw[->, thick] (frame) -- (model);
@@ -232,18 +232,18 @@ The pipeline has four stages: data acquisition (RGB and thermal), feature extrac
     \draw[->, thick] (temporal) -- (conf);
 
     % Verification module
-    \node[draw, rounded corners=2pt, minimum width=3.2cm, minimum height=1.0cm, align=center] (verify) at (17.8,3.8) {Verification\\Module};
+    \node[draw, rounded corners=2pt, minimum width=3.6cm, minimum height=1.1cm, align=center] (verify) at (21,4.4) {Verification\\Module};
     \draw[->, thick] (conf.east) -- (verify.west);
 
     % Alerting box
-    \draw[rounded corners=6pt, line width=0.6pt] (19.6,0.5) rectangle (25.0,5.5);
-    \node at (22.3,5.1) {\bfseries Alerting};
-    \draw[rounded corners=4pt] (20.5,1.0) rectangle (24.1,4.6);
-    \node at (22.3,4.35) {\scriptsize Notification Module};
-    \node[draw, rounded corners=2pt, minimum width=2.6cm, minimum height=0.8cm, align=center] at (22.3,3.5) {Email};
-    \node[draw, rounded corners=2pt, minimum width=2.6cm, minimum height=0.8cm, align=center] at (22.3,2.6) {SMS};
-    \node[draw, rounded corners=2pt, minimum width=2.6cm, minimum height=0.8cm, align=center] at (22.3,1.7) {WhatsApp};
-    \draw[->, thick] (verify.east) -- (19.6,3.8);
+    \draw[rounded corners=6pt, line width=0.6pt] (22.8,0.8) rectangle (29,6.2);
+    \node[font=\bfseries] at (25.9,5.9) {Alerting};
+    \draw[rounded corners=4pt] (23.6,1.4) rectangle (28.2,5.2);
+    \node at (25.9,5.2) {\scriptsize Notification Module};
+    \node[draw, rounded corners=2pt, minimum width=3.0cm, minimum height=0.9cm, align=center] at (25.9,4.3) {Email};
+    \node[draw, rounded corners=2pt, minimum width=3.0cm, minimum height=0.9cm, align=center] at (25.9,3.3) {SMS};
+    \node[draw, rounded corners=2pt, minimum width=3.0cm, minimum height=0.9cm, align=center] at (25.9,2.3) {WhatsApp};
+    \draw[->, thick] (verify.east) -- (22.8,4.4);
   \end{tikzpicture}
   \caption{Drawn System Architecture (schematic).}
 \end{figure}
