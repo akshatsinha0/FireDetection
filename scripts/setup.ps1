@@ -2,7 +2,7 @@
 $ErrorActionPreference='Stop'
 $root=Split-Path -Parent $MyInvocation.MyCommand.Path
 Set-Location "$root\.."
-function Get-PythonExe{if(Get-Command py -ErrorAction SilentlyContinue){return 'py -3'}elseif(Get-Command python -ErrorAction SilentlyContinue){return 'python'}else{throw 'Python not found. Install Python 3 first.'}}
+function Get-PythonExe{if(Get-Command python -ErrorAction SilentlyContinue){return 'python'}elseif(Get-Command py -ErrorAction SilentlyContinue){return 'py'}else{throw 'Python not found. Install Python 3 first.'}}
 $py=Get-PythonExe
 # torch+cuda
 & "$root\install_torch_gpu.ps1"

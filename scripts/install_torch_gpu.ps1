@@ -1,6 +1,6 @@
 # installs torch with CUDA matching your NVIDIA driver; reuses existing install if OK
 $ErrorActionPreference='Stop'
-function Get-PythonExe{if(Get-Command py -ErrorAction SilentlyContinue){return 'py -3'}elseif(Get-Command python -ErrorAction SilentlyContinue){return 'python'}else{throw 'Python not found. Install Python 3 first.'}}
+function Get-PythonExe{if(Get-Command python -ErrorAction SilentlyContinue){return 'python'}elseif(Get-Command py -ErrorAction SilentlyContinue){return 'py'}else{throw 'Python not found. Install Python 3 first.'}}
 function Get-CudaSlug{
   if(!(Get-Command nvidia-smi -ErrorAction SilentlyContinue)){Write-Warning 'nvidia-smi not found; installing CPU torch fallback';return $null}
   $out=(nvidia-smi) -join " `n"
