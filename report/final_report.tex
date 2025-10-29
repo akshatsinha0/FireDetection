@@ -207,43 +207,8 @@ The pipeline has four stages: data acquisition (RGB and thermal), feature extrac
 
 \begin{figure}[h]
   \centering
-\begin{tikzpicture}[x=0.37cm,y=0.37cm,>=Latex,font=\small,xshift=-0.4cm]
-    % Data Acquisition block
-    \draw[rounded corners=6pt, line width=0.6pt] (0,0) rectangle (6,8);
-    \node[font=\bfseries] at (3,8.6) {Data Acquisition};
-    \node[draw, rounded corners=2pt, minimum width=3.6cm, minimum height=1.4cm, align=center] (rgb) at (3,5.6) {RGB\\Camera};
-    \node[draw, rounded corners=2pt, minimum width=3.6cm, minimum height=1.4cm, align=center] (thermal) at (3,2.4) {Thermal\\Camera};
-
-    % Processing and Analysis block (single pipeline, no individual boxes)
-    \draw[rounded corners=6pt, line width=0.6pt] (9,0.8) rectangle (27,7.2);
-    \node[font=\bfseries] at (18,7.8) {Processing and Analysis};
-
-    % Arrows from cameras to processing (spaced)
-    \draw[->, thick] (6,5.6) -- (9,5.6);
-    \draw[->, thick] (6,2.4) .. controls (7.2,2.8) and (8.2,4.0) .. (9.6,5.0);
-
-    % Single pipeline arrow through processing block with labels (no boxes)
-    \draw[->, thick] (9,5.6) -- (27,5.6);
-    \node at (12.5,6.2) {Frame Extractor};
-    \node at (17.5,6.2) {FireFusionNet};
-    \node at (22.5,6.2) {Temporal Analyzer};
-    \node at (17.5,2.6) {Confidence\\Evaluator};
-
-    % Verification module (separate)
-    \node[draw, rounded corners=2pt, minimum width=4.2cm, minimum height=1.4cm, align=center] (verify) at (30.5,5.2) {Verification\\Module};
-    \draw[->, thick] (22.8,3.0) .. controls (24.8,3.2) and (27.0,4.0) .. (28.9,5.0);
-
-    % Alerting block
-    \draw[rounded corners=6pt, line width=0.6pt] (33,0.8) rectangle (42,7.2);
-    \node[font=\bfseries] at (37.5,7.8) {Alerting};
-    \draw[rounded corners=4pt] (34,1.6) rectangle (41,6.2);
-    \node at (37.5,6.3) {\scriptsize Notification Module};
-    \node[draw, rounded corners=2pt, minimum width=3.8cm, minimum height=1.0cm, align=center] at (37.5,4.9) {Email};
-    \node[draw, rounded corners=2pt, minimum width=3.8cm, minimum height=1.0cm, align=center] at (37.5,3.7) {SMS};
-    \node[draw, rounded corners=2pt, minimum width=3.8cm, minimum height=1.0cm, align=center] at (37.5,2.5) {WhatsApp};
-    \draw[->, thick] (verify.east) -- (33,5.2);
-  \end{tikzpicture}
-  \caption{Drawn System Architecture (schematic).}
+  \includegraphics[width=0.98\linewidth]{SYSTEM ARCH.png}
+  \caption{System Architecture.}
 \end{figure}
 
 \subsection{Data Strategy: Datasets and Augmentation}
