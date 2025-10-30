@@ -1,8 +1,5 @@
-# YOLO data config for fire detection
-# put images+labels in YOLO format under these folders
 train: data/fire_yolo/images/train
 val: data/fire_yolo/images/val
 test: data/fire_yolo/images/test
-
 nc: 1
 names: [fire]

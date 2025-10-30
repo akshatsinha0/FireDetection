@@ -36,6 +36,12 @@ dist/
 *.onnx
 *.engine
 
+# Allow tracked weights in repository
+!weights/*.pt
+
+# Allow dataset YAMLs while keeping data/ ignored
+!data/**/data.yaml
+
 # OS
 .DS_Store
 Thumbs.db
