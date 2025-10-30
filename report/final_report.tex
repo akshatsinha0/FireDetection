@@ -10,6 +10,9 @@
 \usepackage{microtype}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{float}
+\usepackage{placeins}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{array}
@@ -19,7 +22,7 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,calc}
 
-\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=black}
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=black,breaklinks=true}
 \setlist{nosep}
 \onehalfspacing
 \parindent=0pt
@@ -160,6 +163,7 @@ Gains come from targeted ideas in architecture and training: attention modules (
     \bottomrule
   \end{tabular}
 \end{table}
+\FloatBarrier
 
 \begin{table}[h]
   \centering
@@ -177,6 +181,7 @@ Gains come from targeted ideas in architecture and training: attention modules (
     \bottomrule
   \end{tabular}
 \end{table}
+\FloatBarrier
 
 \begin{table}[h]
   \centering
@@ -194,6 +199,7 @@ Gains come from targeted ideas in architecture and training: attention modules (
     \bottomrule
   \end{tabular}
 \end{table}
+\FloatBarrier
 
 \subsection{Identified Research Gaps}
 Key gaps include reliance on a single modality (RGB), fragmented datasets and benchmarks, weak handling of non-rigid motion, the accuracy--efficiency trade-off for edge devices, and limited temporal context leading to false positives.
